@@ -50,10 +50,10 @@ def get_collection_two(current_user_token, id):
 @token_required
 def update_collection(current_user_token,id):
     collection = Collection.query.get(id) 
-    collection.car_name = collection.json['car_name']
-    collection.make = collection.json['make']
-    collection.model = collection.json['model']
-    collection.year = collection.json['year']
+    collection.car_name = request.json['car_name']
+    collection.make = request.json['make']
+    collection.model = request.json['model']
+    collection.year = request.json['year']
     collection.user_token = current_user_token.token
 
     db.session.commit()
